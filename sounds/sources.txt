@@ -1,5 +1,17 @@
-https://freesound.org/people/InspectorJ/sounds/402095/
-https://freesound.org/people/InspectorJ/sounds/401707/
-CC-BY
-https://freesound.org/people/mistersherlock/sounds/159509/
-CC0
+dramatic-organ-a.wav:
+- URL: https://freesound.org/people/InspectorJ/sounds/402095/
+- Date: 14 September 2017
+- Author: InspectorJ
+- License: CC BY 4.0
+
+dramatic-organ-b.wav:
+- URL: https://freesound.org/people/InspectorJ/sounds/401707/
+- Date: 8 September 2017
+- Author: InspectorJ
+- License: CC BY 4.0
+
+howling-wind.wav:
+- URL: https://freesound.org/people/mistersherlock/sounds/159509/
+- Date: 24 June 2012
+- Author: mistersherlock
+- License: CC0
