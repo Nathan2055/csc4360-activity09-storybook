@@ -10,7 +10,9 @@ class DetailsScreen extends StatelessWidget {
   AudioPlayer player1 = AudioPlayer();
 
   void startAudio() {
+    debugPrint('Ran startAudio');
     player1.setAsset('sounds/dramatic-organ-a.wav');
+    player1.play();
   }
 
   @override
