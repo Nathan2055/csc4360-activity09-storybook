@@ -71,6 +71,9 @@ flutter:
     - sounds/evil-laugh-3.wav
     - sounds/howling-wind.wav
 
+    - images/pumpkin_emoji.png
+    - images/pumpkin_emoji.jpg
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
