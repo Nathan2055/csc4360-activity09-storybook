@@ -1,0 +1,5 @@
+pumpkin_emoji.png and pumpkin_emoji.jpg derived from:
+- URL: https://github.com/googlefonts/noto-emoji/blob/main/png/512/emoji_u1f383.png
+- Date: 10 May 2021 @ commit 9bdaf2e
+- Author: Google LLC
+- License: SIL Open Font License 1.1
