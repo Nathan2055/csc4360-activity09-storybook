@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:myapp/models/story.dart';
 import 'package:myapp/screens/details_screen.dart';
+import 'package:just_audio/just_audio.dart';
 
 // Simple item model for the mini-game
 class _SpookyItem {
@@ -43,6 +44,31 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     _items = _createItems();
+    _playAudioBackground();
+  }
+
+  void _playAudioBackground() {
+    debugPrint("ran _playAudioBackground");
+    AudioPlayer player = AudioPlayer();
+    player.setAsset('sounds/howling-wind.wav');
+    player.setLoopMode(LoopMode.one);
+    player.play();
+  }
+
+  Future<void> _playAudio1() async {
+    debugPrint("ran _playAudio1");
+    AudioPlayer player = AudioPlayer();
+    player.setAsset('sounds/dramatic-organ-a.wav');
+    await player.play();
+    await player.stop();
+  }
+
+  Future<void> _playAudio2() async {
+    debugPrint("ran _playAudio2");
+    AudioPlayer player = AudioPlayer();
+    player.setAsset('sounds/evil-laugh-1.wav');
+    await player.play();
+    await player.stop();
   }
 
   List<_SpookyItem> _createItems() {
@@ -157,8 +183,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: GestureDetector(
                                 onTap: () {
                                   if (item.isTarget) {
+                                    _playAudio1();
                                     setState(() => _found = true);
                                   } else {
+                                    _playAudio2();
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
                                         content: Text('Not the one!'),
