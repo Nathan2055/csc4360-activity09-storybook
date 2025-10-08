@@ -50,9 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
     final int targetIndex = _random.nextInt(_itemCount);
     // Placeholder images; replace imageUrl with your own assets later
     final sprites = <String>[
-      'https://images.unsplash.com/photo-1665597136817-e6b2d82f6e56?q=50&w=200&auto=format&fit=crop&ixlib=rb-4.1.0',
-      'https://images.unsplash.com/photo-1665597136817-e6b2d82f6e56?q=50&w=200&auto=format&fit=crop&ixlib=rb-4.1.0',
-      'https://images.unsplash.com/photo-1665597136817-e6b2d82f6e56?q=50&w=200&auto=format&fit=crop&ixlib=rb-4.1.0',
+      'images/pumpkins-small.jpg',
+      'images/pumpkins-small.jpg',
+      'images/pumpkins-small.jpg',
     ];
     return List.generate(_itemCount, (i) {
       return _SpookyItem(
@@ -92,11 +92,6 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  String _truncate(int cutoff, String value) {
-    if (value.length <= cutoff) return value;
-    return '${value.substring(0, cutoff)}...';
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,9 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: const DecoratedBox(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(
-                    'https://images.unsplash.com/photo-1665597136817-e6b2d82f6e56?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                  ),
+                  image: AssetImage('images/pumpkins-big.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -178,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(8),
-                                      child: Image.network(
+                                      child: Image.asset(
                                         item.imageUrl,
                                         width: _itemSize,
                                         height: _itemSize,
