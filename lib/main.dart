@@ -11,26 +11,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Story> sampleStories = const [
-      Story(
-        1,
-        'Midnight at Hollow Hill',
-        'A dare leads to a midnight visit to the haunted hill...',
-        'They said no one ever returned after hearing the bell at midnight. But when the wind carried that distant chime, I realized the bell wasn\'t ringing from the hill at all—it was right behind me.',
-      ),
-      Story(
-        2,
-        'The Lantern in the Window',
-        'Every Halloween, a lantern appears in the old manor...',
-        'Grandmother said the lantern was to guide lost souls home. I only understood when I saw my reflection in the glass—faint, transparent, and smiling back from the other side.',
-      ),
-      Story(
-        3,
-        'Whispers in the Cornfield',
-        'At dusk, the corn begins to whisper secrets...',
-        'The farmer never believed the whispers—until he found footprints circling his house, made of corn husks and ash, stopping only at his bedroom door.',
-      ),
-    ];
+    const Story story = Story(
+      1,
+      'Axe Murder Hollow',
+      'A couple stranded in a storm discover they are not alone...',
+      '''Susan and Ned were driving through a wooded, empty section of highway. Lightning flashed, thunder roared, the sky went dark in the torrential downpour.
+"We’d better stop," said Susan. Ned nodded. He hit the brakes and the car slid off the road, coming to a halt at the bottom of an incline.
+Shaken, Ned checked on Susan, then stepped out into the storm to inspect the car. Minutes later he jumped back in, drenched. "We’re stuck in mud. I’ll have to go for help. Lock the doors until I get back."
+Outside, Susan heard a shriek, a thump, and a strange gurgling noise. Then—silence. She waited, trembling. Bump. Bump. Bump. A soft sound, like something swaying in the wind.
+Suddenly, bright light flooded the car and an official-sounding voice ordered her out. As she stepped into the rain, her eyes adjusted to the light—and she saw Ned hanging upside down from the tree beside the car, throat cut so deep he was nearly decapitated. His body swung gently, thumping the trunk. Bump. Bump. Bump.
+She stumbled toward the light—only to realize it wasn’t a flashlight. A glowing figure stood there, smiling, a very real axe in his hand.''',
+    );
 
     return MaterialApp(
       title: 'Halloween Story Book',
@@ -57,7 +48,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: HomeScreen(stories: sampleStories),
+      home: HomeScreen(story: story),
     );
   }
 }
