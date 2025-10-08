@@ -1,86 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/models/recipe.dart';
+import 'package:myapp/models/story.dart';
 import 'package:myapp/screens/home_screen.dart';
 
-// Main method
 void main() {
   runApp(const MyApp());
 }
 
-// Constructor
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-// Recipe model definition is now in lib/models/recipe.dart
-
-class _MyAppState extends State<MyApp> {
-  // Theme control variables
-  ThemeMode _themeMode = ThemeMode.light;
-  bool darkMode = false;
-
-  // Navigation is handled by HomeScreen routing to DetailsScreen
-
-  // Recipe list definition
-  final List<Recipe> recipeList = [
-    Recipe(
-      1,
-      'Spaghetti Bolognese',
-      'Spaghetti, ground beef, onion, garlic, tomato sauce, olive oil, salt, pepper, basil',
-      '1) Boil spaghetti until al dente.\n'
-          '2) Sauté onion and garlic in oil, add beef and brown.\n'
-          '3) Stir in tomato sauce, season, and simmer 15 min.\n'
-          '4) Toss with spaghetti and serve.',
-    ),
-    Recipe(
-      2,
-      'Chicken Alfredo',
-      'Fettuccine, chicken breast, butter, heavy cream, garlic, parmesan, salt, pepper',
-      '1) Cook fettuccine.\n'
-          '2) Sear sliced chicken until cooked; set aside.\n'
-          '3) Melt butter, add garlic, cream, and parmesan to make sauce.\n'
-          '4) Combine pasta, chicken, and sauce.',
-    ),
-    Recipe(
-      3,
-      'Veggie Stir-Fry',
-      'Broccoli, bell pepper, carrot, snap peas, soy sauce, garlic, ginger, sesame oil, rice',
-      '1) Cook rice.\n'
-          '2) Stir-fry veggies in sesame oil over high heat.\n'
-          '3) Add garlic, ginger, and soy sauce; toss 2–3 min.\n'
-          '4) Serve over rice.',
-    ),
-    Recipe(
-      4,
-      'Pancakes',
-      'Flour, baking powder, sugar, salt, milk, egg, butter, vanilla',
-      '1) Mix dry ingredients.\n'
-          '2) Whisk wet ingredients separately.\n'
-          '3) Combine and rest 5 min.\n'
-          '4) Cook on greased skillet until golden.',
-    ),
-    Recipe(
-      5,
-      'Guacamole',
-      'Avocados, lime juice, red onion, cilantro, jalapeño, salt',
-      '1) Mash avocados.\n'
-          '2) Stir in lime, onion, cilantro, and jalapeño.\n'
-          '3) Season with salt to taste.',
-    ),
-  ];
-
-  // App builder
-  @override
   Widget build(BuildContext context) {
+    const Story story = Story(
+      1,
+      'Axe Murder Hollow',
+      'A couple stranded in a storm discover they are not alone...',
+      '''Susan and Ned were driving through a wooded, empty section of highway. Lightning flashed, thunder roared, the sky went dark in the torrential downpour.
+"We’d better stop," said Susan. Ned nodded. He hit the brakes and the car slid off the road, coming to a halt at the bottom of an incline.
+Shaken, Ned checked on Susan, then stepped out into the storm to inspect the car. Minutes later he jumped back in, drenched. "We’re stuck in mud. I’ll have to go for help. Lock the doors until I get back."
+Outside, Susan heard a shriek, a thump, and a strange gurgling noise. Then—silence. She waited, trembling. Bump. Bump. Bump. A soft sound, like something swaying in the wind.
+Suddenly, bright light flooded the car and an official-sounding voice ordered her out. As she stepped into the rain, her eyes adjusted to the light—and she saw Ned hanging upside down from the tree beside the car, throat cut so deep he was nearly decapitated. His body swung gently, thumping the trunk. Bump. Bump. Bump.
+She stumbled toward the light—only to realize it wasn’t a flashlight. A glowing figure stood there, smiling, a very real axe in his hand.''',
+    );
+
     return MaterialApp(
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
-      themeMode: _themeMode,
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen(recipes: recipeList),
+      title: 'Halloween Story Book',
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: const ColorScheme.dark(
+          primary: Colors.deepOrange,
+          secondary: Colors.orangeAccent,
+          surface: Color(0xFF121212),
+          onSurface: Colors.white,
+        ),
+        scaffoldBackgroundColor: const Color(0xFF0E0E0E),
+        appBarTheme: const AppBarTheme(
+          centerTitle: true,
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.orange,
+        ),
+        cardColor: const Color(0xAA1E1E1E),
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.w700,
+            color: Colors.white,
+          ),
+        ),
+      ),
+      home: HomeScreen(story: story),
     );
   }
 }
