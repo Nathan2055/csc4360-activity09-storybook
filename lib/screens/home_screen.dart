@@ -9,7 +9,12 @@ class _SpookyItem {
   final bool isTarget; // the winning item
   Offset position; // pixel position inside the game area (set after layout)
   final String imageUrl; // replace with asset path later if desired
-  _SpookyItem({required this.id, required this.isTarget, required this.position, required this.imageUrl});
+  _SpookyItem({
+    required this.id,
+    required this.isTarget,
+    required this.position,
+    required this.imageUrl,
+  });
 }
 
 class HomeScreen extends StatefulWidget {
@@ -136,7 +141,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: _gameHeight,
                   child: LayoutBuilder(
                     builder: (context, constraints) {
-                      _gameAreaSize = Size(constraints.maxWidth, constraints.maxHeight);
+                      _gameAreaSize = Size(
+                        constraints.maxWidth,
+                        constraints.maxHeight,
+                      );
                       _placeItemsAtEdges();
 
                       return Stack(
@@ -144,7 +152,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           const Positioned(
                             left: 12,
                             top: 8,
-                            child: Text('Find the glowing item', style: TextStyle(color: Colors.white70)),
+                            child: Text(
+                              'Find the glowing item',
+                              style: TextStyle(color: Colors.white70),
+                            ),
                           ),
                           for (final item in _items)
                             Positioned(
@@ -156,7 +167,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     setState(() => _found = true);
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(content: Text('Not the one!')),
+                                      const SnackBar(
+                                        content: Text('Not the one!'),
+                                      ),
                                     );
                                   }
                                 },
@@ -177,10 +190,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                         width: _itemSize + 10,
                                         height: _itemSize + 10,
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius: BorderRadius.circular(
+                                            10,
+                                          ),
                                           boxShadow: [
                                             BoxShadow(
-                                              color: Colors.orange.withOpacity(0.7),
+                                              color: Colors.orange.withOpacity(
+                                                0.7,
+                                              ),
                                               blurRadius: 12,
                                               spreadRadius: 1.5,
                                             ),
@@ -203,13 +220,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 Expanded(
                   child: Center(
                     child: GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
                             builder: (_) => DetailsScreen(story: widget.story),
-                  ),
-                );
-              },
+                          ),
+                        );
+                      },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -221,9 +238,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(height: 8),
                           Text(
                             'Tap to read',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium
+                            style: Theme.of(context).textTheme.bodyMedium
                                 ?.copyWith(color: Colors.white70),
                           ),
                         ],
@@ -231,7 +246,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-
               ],
             ),
           ),
@@ -244,9 +258,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(Icons.celebration, size: 64, color: Colors.orange),
+                    const Icon(
+                      Icons.celebration,
+                      size: 64,
+                      color: Colors.orange,
+                    ),
                     const SizedBox(height: 16),
-                    const Text('You Found It!', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+                    const Text(
+                      'You Found It!',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     const SizedBox(height: 12),
                     Row(
                       mainAxisSize: MainAxisSize.min,

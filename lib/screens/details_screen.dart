@@ -16,15 +16,9 @@ class DetailsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                story.teaser,
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
+              Text(story.teaser, style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 16),
-              Text(
-                story.content,
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
+              Text(story.content, style: Theme.of(context).textTheme.bodyLarge),
             ],
           ),
         ),
